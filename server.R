@@ -7,6 +7,8 @@ tsne_server <- function (input, output, session, session_info = NULL) {
   mydata <- reactive({
     # ---------- get cookie data from browser ----------
     cookie <- get_cookie(session_info$state)
+    print("got cookie")
+    print(cookie)
     rid <- NULL
     if (!is.null(cookie)) {
       foundry_rids <- fromJSON(cookie) #parse as JSON, but if you wrote it in another format, parse as apt
@@ -68,7 +70,7 @@ tsne_server <- function (input, output, session, session_info = NULL) {
     input$upload, 
     {
       print("exporting to nidap")
-      cookie <- cookies::get_cookie(session_info$state)
+      cookie <- get_cookie(session_info$state)
 
       if(!is.null(cookie)){
         cookie_json <- fromJSON(cookie)  
