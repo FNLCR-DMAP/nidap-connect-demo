@@ -1,10 +1,11 @@
 library(cookies)
 library(shiny)
+library(shinyjs)
 library(DT)
 
 tsne_ui <-  cookies::add_cookie_handlers(
   fluidPage(
-    useShinyjs(),
+    shinyjs::useShinyjs(),
     titlePanel("My Cool Shiny <-> NIDAP App!"),
     mainPanel(
       br(),
