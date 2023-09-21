@@ -1,0 +1,3 @@
+linters: with_defaults(line_length_linter=line_length_linter(120))
+exclusions: #list( "tsne_server.R", "tsne_UI.R" )
+encoding: "UTF-8"
