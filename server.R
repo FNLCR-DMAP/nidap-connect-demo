@@ -58,7 +58,7 @@ tsne_server <- function (input, output, session, session_info = NULL) {
   })
 
   observe({
-    df <- myData()
+    df <- mydata()
     if (!is.null(df)){
       output$input_data <- DT::renderDataTable({df})
     }
@@ -73,7 +73,10 @@ tsne_server <- function (input, output, session, session_info = NULL) {
         cookie_json <- fromJSON(cookie)  
         rid <- cookie_json$outputRID      
         filePath <- sprintf("tempFile_from_posit-%s.csv", Sys.Date())
-        data_to_upload <- exportDataset$data
+        
+        data_to_upload <- mydata() # whatever var represents your transformed data
+        data_to_upload <- head(data_to_upload)
+
         two_d_csv <- capture.output(write.csv(data_to_upload, row.names = FALSE)) #list of lists
         character_list <- paste(two_d_csv, collapse="\n")
         raw_char_array <- charToRaw(character_list)
