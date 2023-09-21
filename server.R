@@ -6,6 +6,8 @@ tsne_server <- function (input, output, session, session_info = NULL) {
   
   mydata <- reactive({
     # ---------- get cookie data from browser ----------
+    print("state")
+    print(sessionInfo)
     cookie <- get_cookie(session_info$state)
     print("got cookie")
     print(cookie)
