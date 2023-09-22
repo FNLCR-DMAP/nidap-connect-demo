@@ -99,13 +99,13 @@ myShinyServer <- function (input, output, session, session_info = NULL) {
         print(status_code(response))
         print(content(response))
         if (status_code(response) >= 400) { #probably a better way to do this
-          output$upload_error_message_box <- renderText(
+          output$upload_error_box <- renderText(
             paste("ERROR, could not upload data to NIDAP | OutputRID: ", rid)
           )
         }
 
       } else{
-        output$upload_error_message_box <- renderText("ERROR, could not find upload RID in cookies")
+        output$upload_error_box <- renderText("ERROR, could not find upload RID in cookies")
       }
     }
   )
