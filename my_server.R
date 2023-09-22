@@ -3,10 +3,10 @@ library(DT)
 
 myShinyServer <- function (input, output, session, session_info = NULL) {
   auth_token <- session$userData$auth0_credentials$access_token
-  print("got auth token")
-  print(auth_token)
-  print("session info")
-  print(session_info)
+  # print("got auth token")
+  # print(auth_token)
+  # print("session info")
+  # print(session_info)
 
   mydata <- reactive({
     # ---------- get cookie data from browser ----------
@@ -98,6 +98,9 @@ myShinyServer <- function (input, output, session, session_info = NULL) {
         )
         print(status_code(response))
         print(content(response))
+        if (status_code(response) > 400) { #probably a better way to do this
+          output$upload_error_message_box <- renderText(paste("ERROR, could not upload data to NIDAP<br>OutputRID: ", rid, "<br>Status:", content(response))) 
+        }
 
       } else{
         output$upload_error_message_box <- renderText("ERROR, could not find upload RID in cookies")
