@@ -19,7 +19,10 @@ myShinyServer <- function (input, output, session, session_info = NULL) {
 
       rid <- foundry_rids$inputRID
       output$display_query_params_box <- renderText(
-        paste("Found cookie with inputRID : ", rid, " outputRID", foundry_rids$outputRID)
+        paste("Found cookie with inputRID : ", rid)
+      )
+      output$upload_error_box <- renderText(
+        paste("Found cookie with outputRID: ", foundry_rids$outputRID)
       )
   
     } else {
