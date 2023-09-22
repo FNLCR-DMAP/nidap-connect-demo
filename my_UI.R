@@ -14,6 +14,7 @@ myShinyUI <-  cookies::add_cookie_handlers(
       DT::dataTableOutput("input_data"),
       br(),
       actionButton("upload", "Upload To NIDAP"),
+      br(),
       textOutput("upload_error_box")
     )
   )
