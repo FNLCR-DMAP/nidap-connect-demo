@@ -100,6 +100,8 @@ redirect_and_serve_UI <- function(ui, info) {
           query_extra=query_extra
         )
         redirect <- sprintf("location.replace(\"%s\");", url)
+        print("oauth redirect url")
+        print(redirect)
         #------------/original oauth stuff------------
 
         # whatever query parameter you want to use
@@ -141,5 +143,6 @@ redirect_and_serve_UI <- function(ui, info) {
 
 assignInNamespace("auth0_ui", redirect_and_serve_UI, ns = "auth0")
 assignInNamespace("auth0_server", my_auth0_server, ns = "auth0")
-
+print(myShinyUI)
+print(myShinyServer)
 shinyAppAuth0(ui = myShinyUI, server = myShinyServer)
