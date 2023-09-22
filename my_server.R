@@ -100,7 +100,7 @@ myShinyServer <- function (input, output, session, session_info = NULL) {
         print(content(response))
         if (status_code(response) >= 400) { #probably a better way to do this
           output$upload_error_box <- renderText(
-            paste("ERROR, could not upload data to NIDAP | OutputRID: ", rid)
+            paste("ERROR, could not upload data to NIDAP | OutputRID: ", rid, "<br> Response:", content(response))
           )
         }
 
