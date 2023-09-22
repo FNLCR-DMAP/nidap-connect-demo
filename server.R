@@ -5,10 +5,11 @@ tsne_server <- function (input, output, session, session_info = NULL) {
   auth_token <- session$userData$auth0_credentials$access_token
   print("got auth token")
   print(auth_token)
+  print("session info")
+  print(session_info)
+
   mydata <- reactive({
     # ---------- get cookie data from browser ----------
-    print("state")
-    print(sessionInfo)
     cookie <- get_cookie(session_info$state)
     print("got cookie")
     print(cookie)
