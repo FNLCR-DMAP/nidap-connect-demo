@@ -1,7 +1,7 @@
 library(arrow)
 library(DT)
 
-tsne_server <- function (input, output, session, session_info = NULL) {
+myShinyServer <- function (input, output, session, session_info = NULL) {
   auth_token <- session$userData$auth0_credentials$access_token
   print("got auth token")
   print(auth_token)
