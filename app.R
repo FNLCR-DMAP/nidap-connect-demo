@@ -10,8 +10,8 @@ library(arrow)
 library(cookies)
 
 
-source("./UI.R") # myShinyUI
-source("./server.R") #myShinyServer
+source("./my_UI.R") # myShinyUI
+source("./my_server.R") #myShinyServer
 
 #taken from auth0.R for scope, no changes from library
 has_auth_code <- function(params, state) {

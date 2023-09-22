@@ -1,11 +1,11 @@
 library(cookies)
 library(shiny)
-library(shinyjs)
+#library(shinyjs)
 library(DT)
 
 myShinyUI <-  cookies::add_cookie_handlers(
   fluidPage(
-    shinyjs::useShinyjs(),
+    #shinyjs::useShinyjs(),
     titlePanel("My Cool Shiny <-> NIDAP App!"),
     mainPanel(
       br(),
